@@ -33,7 +33,6 @@
           >
             <v-col class="text-center">
               <v-btn
-                :loading="loading"
                 @click="submit"
                 large
                 color="primary lighten-1"
@@ -68,14 +67,16 @@
           <p class="text-h6">
             <span
               v-for="(label, index) in labels"
+              :style="{ backgroundColor: label.color }"
               :class="label.color"
               :key="index"
-            >{{ label.char }}</span>
+              v-html="label.char"
+            ></span>
           </p>
           <div class="d-flex flex-row-reverse">
             <div
-              style="height: 25px; width: 60px; border-radius: 4px;"
-              class="red mr-1"
+              style="height: 25px; width: 60px; border-radius: 4px; background-color: #FF9000;"
+              class="mr-1"
             >
             </div>
             <div style="line-height: 25px;">
@@ -83,7 +84,7 @@
             </div>
             <div
               style="height: 25px; width: 60px; border-radius: 4px;"
-              class="blue ml-2 mr-1"
+              class="ml-2 mr-1 blue"
             >
             </div>
             <div style="line-height: 25px;">
@@ -126,7 +127,32 @@
       </v-card>
     </v-slide-x-transition>
 
+    <v-dialog
+      persistent
+      v-model="loading"
+      max-width="500"
+    >
+      <v-card>
+        <v-progress-linear
+          indeterminate
+          
+        ></v-progress-linear>
 
+        <v-card-title class="text-h6">
+          正在提交
+        </v-card-title>
+
+        <v-card-subtitle>
+          系统正在处理请稍后
+        </v-card-subtitle>
+        
+        <v-card-text>
+          <v-responsive :aspect-ratio="555/400">
+            <loading ref="loading"></loading>
+          </v-responsive>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
 
     <v-dialog
       v-model="networkError"
@@ -263,7 +289,7 @@
     data: () => ({
       loading: false,
       editing: true,
-      text: "2021年8月10日消息，据36氪报道，FreeLunch队宣布完成 500 万美元 Pre-A 轮融资，本轮融资由创新工厂独家投资，FreeLunch队宣布白勇先生已获委任为公司首席财务官。",
+      text: "2021年8月10日消息，据36氪报道，FreeLunch队宣布完成 500 万美元 Pre-A 轮融资，本轮融资由创新工场独家投资，FreeLunch队宣布白勇先生已获委任为公司首席财务官。",
       items: [],
       labels: [],
       networkError: false,
@@ -271,13 +297,20 @@
       errMsg: '',
       detail: false,
       timeout: false,
+      timer: undefined,
     }),
     methods: {
       submit: function() {
-        this.loading = true;
+        this.loading = true
+        this.timeout = false
         let _this = this
 
-        setTimeout(() => {
+        if (this.$refs.loading) {
+          this.$refs.loading.$el.setCurrentTime(0)
+        }
+
+        clearTimeout(this.timer)
+        this.timer = setTimeout(() => {
           if (_this.loading) {
             _this.loading = false
             _this.timeout = true
@@ -299,12 +332,13 @@
             // render event text
             _this.labels = []
             for (let i = 0; i < data.text.length; i++) {
-              if (data.text[i] && data.text[i] != ' ') {
-                let label = { char: data.text[i], color: undefined }
+              if (data.text[i]) {
+                let text = data.text[i] == '\n' ? '<br>' : data.text[i]
+                let label = { char: text, color: undefined }
                 if (data.trigger_labels[i] && data.trigger_labels[i] != 'O')
-                  label.color = 'red'
+                  label.color = '#FF9000'
                 if (data.role_labels[i] && data.role_labels[i] != 'O')
-                  label.color = label.color ? 'purple' : 'blue'
+                  label.color = label.color ? '#FF9000' : 'blue'
                 _this.labels.push(label)
               }
             }

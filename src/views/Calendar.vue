@@ -150,7 +150,7 @@
       selectedOpen: false,
       events: [],
       colors: ['blue', 'indigo', 'deep-purple', 'cyan', 'green', 'orange', 'grey darken-1'],
-      names: ['阿里巴巴', '腾讯', '创新工场', 'FreeLunch', 'DeeCamp', '华为', '上市', '融资', '破产'],
+      names: ['阿里巴巴', '腾讯', '创新工场', 'FreeLunch', 'DeeCamp', '华为', '上市', '融资', '高管变动'],
     }),
     mounted () {
       this.$refs.calendar.checkChange()

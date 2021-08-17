@@ -1,0 +1,605 @@
+<svg width="555" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="555 400" style="background: #FFF">
+  <defs>
+    <filter id="f1" x="-5%" y="-5%" width="110%" height="110%">
+      <feOffset result="offOut" in="SourceAlpha" dx="0" dy="0" />
+      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="4" />
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    </filter>
+
+    <g id="output">
+      <rect
+        rx="5"
+        ry="5"
+        width="35"
+        height="30"
+        stroke="black"
+        fill="transparent"
+        stroke-width="1"
+      />
+    </g>
+
+    <g id="outputs">
+      <use
+        href="#output"
+      />
+      <use
+        href="#output"
+        x="45"
+      />
+      <use
+        href="#output"
+        x="90"
+      />
+      <use
+        href="#output"
+        x="135"
+      />
+      <use
+        href="#output"
+        x="180"
+      />
+      <use
+        href="#output"
+        x="225"
+      />
+      <use
+        href="#output"
+        x="270"
+      />
+      <text
+        x="327"
+        y="15"
+        font-size="18"
+      >
+        ...
+      </text>
+      <use
+        href="#output"
+        x="360"
+      />
+      <use
+        href="#output"
+        x="405"
+      />
+
+      <text
+        x="13"
+        y="17"
+      >
+        <tspan font-size="12">L</tspan>
+        <tspan baseline-shift="sub" font-size="10">1</tspan>
+      </text>
+      <text
+        x="58"
+        y="17"
+      >
+        <tspan font-size="12">L</tspan>
+        <tspan baseline-shift="sub" font-size="10">2</tspan>
+      </text>
+      <text
+        x="102"
+        y="17"
+      >
+        <tspan font-size="12">L</tspan>
+        <tspan baseline-shift="sub" font-size="10">3</tspan>
+      </text>
+      <text
+        x="147"
+        y="17"
+      >
+        <tspan font-size="12">L</tspan>
+        <tspan baseline-shift="sub" font-size="10">4</tspan>
+      </text>
+      <text
+        x="192"
+        y="17"
+      >
+        <tspan font-size="12">L</tspan>
+        <tspan baseline-shift="sub" font-size="10">5</tspan>
+      </text>
+      <text
+        x="237"
+        y="17"
+      >
+        <tspan font-size="12">L</tspan>
+        <tspan baseline-shift="sub" font-size="10">6</tspan>
+      </text>
+      <text
+        x="282"
+        y="17"
+      >
+        <tspan font-size="12">L</tspan>
+        <tspan baseline-shift="sub" font-size="10">7</tspan>
+      </text>
+      <text
+        x="364"
+        y="17"
+      >
+        <tspan font-size="12">L</tspan>
+        <tspan baseline-shift="sub" font-size="10">n-1</tspan>
+      </text>
+      <text
+        x="417"
+        y="17"
+      >
+        <tspan font-size="12">L</tspan>
+        <tspan baseline-shift="sub" font-size="10">n</tspan>
+      </text>
+    </g>
+
+    <marker id="arrow_end" markerWidth="9" markerHeight="6" orient="auto" refX="0" refY="3" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+    </marker>
+
+    <g id="arrow">
+      <line
+        x1="0"
+        y1="20"
+        x2="0"
+        y2="0"
+        stroke="#000"
+        stroke-width="1"
+        marker-end="url(#arrow_end)"
+      />
+    </g>
+
+    <g id="arrows">
+      <use
+        href="#arrow"
+        x="76"
+        y="70"
+      />
+      <use
+        href="#arrow"
+        x="121"
+        y="70"
+      />
+      <use
+        href="#arrow"
+        x="166"
+        y="70"
+      />
+      <use
+        href="#arrow"
+        x="211"
+        y="70"
+      />
+      <use
+        href="#arrow"
+        x="256"
+        y="70"
+      />
+      <use
+        href="#arrow"
+        x="301"
+        y="70"
+      />
+      <use
+        href="#arrow"
+        x="346"
+        y="70"
+      />
+      <use
+        href="#arrow"
+        x="391"
+        y="70"
+      />
+      <use
+        href="#arrow"
+        x="436"
+        y="70"
+      />
+      <use
+        href="#arrow"
+        x="481"
+        y="70"
+      />
+    </g>
+
+    <g id="CRF">
+      <rect
+        rx="10"
+        ry="10"
+        width="460"
+        height="40"
+        fill="transparent"
+        stroke="#FF9000"
+        stroke-width="2"
+      >
+        <animate
+          attributeName="fill"
+          from="white"
+          to="#FF9000"
+          begin="3000ms"
+          dur="300ms"
+          additive="sum"
+          fill="freeze"
+        />
+        <animate
+          attributeName="fill"
+          to="white"
+          from="#FF9000"
+          begin="3700ms"
+          dur="300ms"
+          additive="sum"
+          fill="freeze"
+        />
+      </rect>
+      <text
+        x="230"
+        y="22"
+        font-size="18"
+        text-anchor="middle"
+        dominant-baseline="middle"
+      >
+        CRF
+      </text>
+    </g>
+
+    <g id="BIGRU">
+      <rect
+        rx="10"
+        ry="10"
+        width="460"
+        height="40"
+        fill="transparent"
+        stroke="#42B6C4"
+        stroke-width="2"
+      >
+        <animate
+          attributeName="fill"
+          from="white"
+          to="#42B6C4"
+          begin="2000ms"
+          dur="300ms"
+          additive="sum"
+          fill="freeze"
+        />
+        <animate
+          attributeName="fill"
+          to="white"
+          from="#42B6C4"
+          begin="2700ms"
+          dur="300ms"
+          additive="sum"
+          fill="freeze"
+        />
+      </rect>
+      <text
+        x="230"
+        y="22"
+        font-size="18"
+        text-anchor="middle"
+        dominant-baseline="middle"
+      >
+        Bi-GRU
+      </text>
+    </g>
+
+    <g id="BERT">
+      <rect
+        rx="10"
+        ry="10"
+        width="460"
+        height="40"
+        fill="transparent"
+        stroke="#FDD14F"
+        stroke-width="2"
+      >
+        <animate
+          attributeName="fill"
+          from="white"
+          to="#FDD14F"
+          begin="1000ms"
+          dur="300ms"
+          additive="sum"
+          fill="freeze"
+        />
+        <animate
+          attributeName="fill"
+          to="white"
+          from="#FDD14F"
+          begin="1700ms"
+          dur="300ms"
+          additive="sum"
+          fill="freeze"
+        />
+      </rect>
+      <text
+        x="230"
+        y="22"
+        font-size="18"
+        text-anchor="middle"
+        dominant-baseline="middle"
+      >
+        Chinese-RoBERTa-www-ext
+      </text>
+    </g>
+
+    <g id="inputs">
+      <use
+        href="#output"
+      />
+      <use
+        href="#output"
+        x="45"
+      />
+      <use
+        href="#output"
+        x="90"
+      />
+      <use
+        href="#output"
+        x="135"
+      />
+      <use
+        href="#output"
+        x="180"
+      />
+      <use
+        href="#output"
+        x="225"
+      />
+      <use
+        href="#output"
+        x="270"
+      />
+      <text
+        x="327"
+        y="15"
+        font-size="18"
+      >
+        ...
+      </text>
+      <use
+        href="#output"
+        x="360"
+      />
+      <use
+        href="#output"
+        x="405"
+      />
+
+      <text
+        x="10"
+        y="17"
+      >
+        <tspan font-size="12">W</tspan>
+        <tspan baseline-shift="sub" font-size="10">1</tspan>
+      </text>
+      <text
+        x="55"
+        y="17"
+      >
+        <tspan font-size="12">W</tspan>
+        <tspan baseline-shift="sub" font-size="10">2</tspan>
+      </text>
+      <text
+        x="99"
+        y="17"
+      >
+        <tspan font-size="12">W</tspan>
+        <tspan baseline-shift="sub" font-size="10">3</tspan>
+      </text>
+      <text
+        x="145"
+        y="17"
+      >
+        <tspan font-size="12">W</tspan>
+        <tspan baseline-shift="sub" font-size="10">4</tspan>
+      </text>
+      <text
+        x="190"
+        y="17"
+      >
+        <tspan font-size="12">W</tspan>
+        <tspan baseline-shift="sub" font-size="10">5</tspan>
+      </text>
+      <text
+        x="234"
+        y="17"
+      >
+        <tspan font-size="12">W</tspan>
+        <tspan baseline-shift="sub" font-size="10">6</tspan>
+      </text>
+      <text
+        x="280"
+        y="17"
+      >
+        <tspan font-size="12">W</tspan>
+        <tspan baseline-shift="sub" font-size="10">7</tspan>
+      </text>
+      <text
+        x="362"
+        y="17"
+      >
+        <tspan font-size="12">W</tspan>
+        <tspan baseline-shift="sub" font-size="10">n-1</tspan>
+      </text>
+      <text
+        x="414"
+        y="17"
+      >
+        <tspan font-size="12">W</tspan>
+        <tspan baseline-shift="sub" font-size="10">n</tspan>
+      </text>
+    </g>
+
+    <g id="papers">
+        <rect filter="url(#f1)" x="20" y="0" width="150" height="200" style="fill: white;"/>
+        <rect filter="url(#f1)" x="10" y="10" width="150" height="200" style="fill: white;" />
+        <rect filter="url(#f1)" x="0" y="20" width="150" height="200" style="fill: white; " />
+        <text x="10" y="40" fill="#000000">文档标题</text>
+        <text x="10" y="80" fill="#000000">xx xxxx </text>
+        <text x="10" y="100" fill="#000000">xxxxxxxxx </text>
+    </g>
+  </defs>
+
+  <use
+    href="#outputs"
+    x="-220"
+    y="-15"
+    transform="translate(277.5, 45)"
+  >
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      from="1"
+      to="1.05"
+      begin="4000ms"
+      dur="200ms"
+      additive="sum"
+      fill="freeze"
+    />
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      from="1"
+      to="0.9524"
+      begin="4200ms"
+      dur="200ms"
+      additive="sum"
+      fill="freeze"
+    />
+  </use>
+
+  <use href="#arrows" y="0" />
+
+  <use
+    href="#CRF"
+    x="-230"
+    y="-20"
+    transform="translate(277.5, 110)"
+  >
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      from="1"
+      to="1.05"
+      begin="3000ms"
+      dur="300ms"
+      additive="sum"
+      fill="freeze"
+    />
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      from="1"
+      to="0.9524"
+      begin="3700ms"
+      dur="300ms"
+      additive="sum"
+      fill="freeze"
+    />
+  </use>
+
+  <use href="#arrows" y="70" />
+
+  <use
+    href="#BIGRU"
+    x="-230"
+    y="-20"
+    transform="translate(277.5, 180)"
+  >
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      from="1"
+      to="1.05"
+      begin="2000ms"
+      dur="300ms"
+      additive="sum"
+      fill="freeze"
+    />
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      from="1"
+      to="0.9524"
+      begin="2700ms"
+      dur="300ms"
+      additive="sum"
+      fill="freeze"
+    />
+  </use>
+
+  <use href="#arrows" y="140" />
+
+  <use
+    href="#BERT"
+    x="-230"
+    y="-20"
+    transform="translate(277.5, 251)"
+  >
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      from="1"
+      to="1.05"
+      begin="1000ms"
+      dur="300ms"
+      additive="sum"
+      fill="freeze"
+    />
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      from="1"
+      to="0.9524"
+      begin="1700ms"
+      dur="300ms"
+      additive="sum"
+      fill="freeze"
+    />
+  </use>
+
+  <use href="#arrows" y="211" />
+
+  <use
+    href="#inputs"
+    x="-220"
+    y="-15"
+    transform="translate(277.5, 317)"
+  >
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      from="1"
+      to="1.05"
+      begin="600ms"
+      dur="200ms"
+      fill="freeze"
+      additive="sum"
+    />
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      from="1"
+      to="0.9524"
+      begin="800ms"
+      dur="200ms"
+      additive="sum"
+      fill="freeze"
+    />
+  </use>
+
+  <use href="#papers">
+    <animateMotion
+      path="M0,0 L230,250"
+      begin="0s"
+      dur="500ms"
+      additive="sum"
+      fill="freeze"
+    />
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      from="1"
+      to="0.5"
+      dur="500ms"
+      additive="sum"
+      fill="freeze"
+    />
+  </use>
+
+</svg>

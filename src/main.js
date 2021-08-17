@@ -18,6 +18,9 @@ import VueWordCloud from 'vuewordcloud'
 
 Vue.component(VueWordCloud.name, VueWordCloud)
 
+import Loading from './components/Loading.vue'
+Vue.component('loading', Loading)
+
 new Vue({
   vuetify,
   router,

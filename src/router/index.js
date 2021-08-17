@@ -5,6 +5,7 @@ import Calendar from '../views/Calendar.vue'
 import Analysis from '../views/Analysis.vue'
 import Report from '../views/Report.vue'
 import Hot from '../views/Hot.vue'
+import Test from '../views/Test.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,11 @@ const routes = [
     path: '/report',
     name: 'Report',
     component: Report
+  },
+  {
+    path: 'test',
+    name: 'Test',
+    component: Test,
   }
 ]
 

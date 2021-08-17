@@ -42,75 +42,82 @@
       </v-responsive>
     </v-card>
 
-    <v-fade-transition>
-      <v-responsive>
-        <v-container v-if="showGraph">
-          <span class="text-h5">从金融文档到知识图谱</span>
+    <v-container
+      class="pa-0 my-2"
+    >
+      <v-card class="transparent" flat>
+        <v-card-title>
+          <v-icon class="mr-1">mdi-sitemap</v-icon>从金融文档到知识图谱
+        </v-card-title>
+        
+        <v-container class="white" v-if="showGraph">
+          
           <v-chart
             :options="relation"
-            style="width: 100%; min-height: 500px;"
+            style="width: 100%; min-height: 200px;"
             ref="chart"
           >
           </v-chart>
         </v-container>
-      </v-responsive>
-    </v-fade-transition>
+      </v-card>
+    </v-container>
     
-    <v-container>
-      <v-row justify="center" align="center">
-        <v-col class="text-center mb-1">
-          <span class="text-lg-h4 text-h5">最新热点</span>
-        </v-col>
-      </v-row>
-      <v-row dense>
-        <v-col
-          v-for="card in cards"
-          :key="card.title"
-          :lg="3"
-          :md="6"
-          :sm="6"
-          :xs="12"
-        >
-          <v-card color="gray">
-            <v-img
-              dark
-              transition="true"
-              :src="card.src"
-              class="white--text align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="200px"
-            >
-              <v-card-title v-text="card.title"></v-card-title>
-            </v-img>
-
-            <v-card-subtitle class="pb-0">
-              {{ card.subtitle }}
-            </v-card-subtitle>
-
-            <v-card-text class="text--primary">
-              <div> {{ card.content }} </div>
-            </v-card-text>
-
-            <v-card-actions>
-              <v-btn
-                color="orange"
-                text
-                :to="'/hot'"
+    <v-container
+      class="pa-0 my-2"
+    >
+      <v-card flat class="transparent">
+        <v-card-title><v-icon class="mr-1">mdi-fire</v-icon>最新热点</v-card-title>
+        
+        <v-row dense>
+          <v-col
+            v-for="card in cards"
+            :key="card.title"
+            :lg="3"
+            :md="6"
+            :sm="6"
+            :xs="12"
+          >
+            <v-card color="gray" >
+              <v-img
+                dark
+                transition="true"
+                :src="card.src"
+                class="white--text align-end"
+                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                height="200px"
               >
-                查看详情
-              </v-btn>
+                <v-card-title v-text="card.title"></v-card-title>
+              </v-img>
 
-              <v-btn
-                color="orange"
-                text
-                :to="'/hot'"
-              >
-                更多热点
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
+              <v-card-subtitle class="pb-0">
+                {{ card.subtitle }}
+              </v-card-subtitle>
+
+              <v-card-text class="text--primary">
+                <div> {{ card.content }} </div>
+              </v-card-text>
+
+              <v-card-actions>
+                <v-btn
+                  color="orange"
+                  text
+                  :to="'/hot'"
+                >
+                  查看详情
+                </v-btn>
+
+                <v-btn
+                  color="orange"
+                  text
+                  :to="'/hot'"
+                >
+                  更多热点
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-card>
     </v-container>
 
     <v-footer
@@ -275,9 +282,9 @@
                 target: 'DeeCamp',
                 name: '发起',
             }, {
-                source: '创新工场',
+                source: 'DeeCamp',
                 target: 'FreeLunch队',
-                name: '投资',
+                name: '孵化',
             }, {
                 source: '创新工场',
                 target: 'A公司',
@@ -285,13 +292,20 @@
             }, {
                 source: '创新工场',
                 target: 'B公司',
-                name: '监事',
+                name: '参股',
             }],
             categories: categories,
+            color: ['#FF9000', '#42B6C4', '#FDD14F', '#73c0de'],
           }]
         }
         return option
-      }
+      },
+      carouselRatio: function () {
+        switch (this.$vuetify.breakpoint.name) {
+          case 'xs': return 1
+          default: return 2/1
+        }
+      },
     },
     methods: {
       submit: function () {
@@ -316,7 +330,9 @@
 
       },
       handleResize: function () {
-        this.$refs.chart.resize()
+        if (this.$refs.chart) {
+          this.$refs.chart.resize()
+        }
       },
     },
     mounted: function () {

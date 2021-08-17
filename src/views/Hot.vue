@@ -12,7 +12,7 @@
         :style="selectedItem == undefined ? { transition: '500ms', transitionDelay: '500ms' } : {}"
       >
         <v-card-title class="grey lighten-4">
-          <v-icon large>mdi-magnify</v-icon><span class="text-h5">发现热点</span>
+          <v-icon large>mdi-magnify</v-icon><span class="text-h6 text-sm-h5">发现热点</span>
         </v-card-title>
 
         <v-list>
@@ -22,6 +22,7 @@
               :key="i"
               no-gutters
               :id="'detail' + String(i)"
+              @click="scroll"
             >
               <v-list-item
                 :class="{
@@ -51,8 +52,8 @@
                     <v-menu
                       transition="scroll-y-transition"
                       offset-y
-                      style="width: 80%"
-                      max-width="400px"
+                      min-width="300"
+                      max-width="400"
                       class="overflow-y-auto"
                     >
                       <template v-slot:activator="{ on, attrs }">
@@ -88,6 +89,7 @@
 
       <v-slide-x-transition>
         <v-col
+          id="hotinfo"
           :md="4"
           :sm="12"
           class="pa-0 grey lighten-5"
@@ -112,7 +114,7 @@
                   <vue-word-cloud
                     style="width: 100%; height: 200px"
                     :words="item.wordsdata"
-                    :color="([, weight]) => weight > 10 ? 'DeepPink' : weight > 5 ? 'RoyalBlue' : 'Indigo'"
+                    :color="([, weight]) => weight > 10 ? '#ff9800' : weight > 5 ? '#42B6C4' : '#FDD14F'"
                     font-family="Roboto"
                     :enter-animation="enterAnimation"
                     :leave-animation="enterAnimation"
@@ -311,7 +313,7 @@
       enterAnimation: () => ({
         opacity: 0,
         transform: 'scale3d(0.3, 0.3, 0.3)',
-      })
+      }),
     },
     methods: {
       getLine: function () {
@@ -356,6 +358,11 @@
       detailbyday: function (day) {
         return day != undefined ? [this.items[day]] : []
       },
+      scroll: function () {
+        setTimeout(() => {
+          this.$vuetify.goTo('#hotinfo')
+        }, 500)
+      }
     },
     mounted: function () {
     }
