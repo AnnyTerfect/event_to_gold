@@ -1,4 +1,4 @@
-# vuetify-dashborad
+# Event to gold
 
 ## Project setup
 ```
